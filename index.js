@@ -8,6 +8,7 @@ const table = document.querySelector('table'),
 
 if(screen.width < screen.height) 
 	    document.querySelector('body').style.flexWrap = "wrap";
+        
   
   
 window.addEventListener("orientationchange", function() {

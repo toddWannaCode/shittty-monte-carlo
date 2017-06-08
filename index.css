@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 body {
   font-family: "Press Start 2p", sans-serif;
   display: flex;
 }
 table {
-  height: 360px;
+  height: 720px;
   width: 720px;
   background: #000;
   border-collapse: collapse;
