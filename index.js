@@ -1,4 +1,10 @@
-    table = document.querySelector('table');
+const table = document.querySelector('table'),
+      sidePanel = document.getElementById('side-panel'),
+      button = document.querySelector('button'),
+      spanPi = document.querySelector('#pi'),
+      spanSdev = document.querySelector('#s-dev'),
+      clicked = false;
+
 
 if(screen.width < screen.height) 
 	    document.querySelector('body').style.flexWrap = "wrap";
@@ -12,8 +18,8 @@ window.addEventListener("orientationchange", function() {
 
 
 for(i = 0; i < 180; i++) {
-  r = table.insertRow();
-  y = 90 - i;
+  const r = table.insertRow();
+  const y = 90 - i;
   for(j = 0; j < 180; j++) {
     x = 90 - j;
     c = r.insertCell();
@@ -24,13 +30,6 @@ for(i = 0; i < 180; i++) {
     
   }
 }
-
-
-sidePanel = document.getElementById('side-panel');
-button = document.querySelector('button')
-spanPi = document.querySelector('#pi')
-spanSdev = document.querySelector('#s-dev')
-clicked = false
 
 function throwNeedles() {
   const numNeedles = document.querySelector("#needlesInput").value;
@@ -59,7 +58,7 @@ function throwNeedles() {
 }
 
 function clean() {
-  needles = document.querySelectorAll('.needles')
+  const needles = document.querySelectorAll('.needles')
   Array.from(needles).forEach(v => v.classList.remove('needles'))
   button.textContent = 'Throw!'
   spanPi.textContent = ''
