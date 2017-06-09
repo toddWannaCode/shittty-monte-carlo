@@ -1,14 +1,7 @@
-const table = document.querySelector('table'),
-      sidePanel = document.getElementById('side-panel'),
-      button = document.querySelector('button'),
-      spanPi = document.querySelector('#pi'),
-      spanSdev = document.querySelector('#s-dev'),
-      clicked = false;
-
+const table = document.querySelector('table');
 
 if(screen.width < screen.height) 
 	    document.querySelector('body').style.flexWrap = "wrap";
-        
   
   
 window.addEventListener("orientationchange", function() {
@@ -18,12 +11,12 @@ window.addEventListener("orientationchange", function() {
 });
 
 
-for(i = 0; i < 180; i++) {
-  const r = table.insertRow();
-  const y = 90 - i;
-  for(j = 0; j < 180; j++) {
-    x = 90 - j;
-    c = r.insertCell();
+for(let i = 0; i < 180; i++) {
+  let r = table.insertRow();
+  let y = 90 - i;
+  for(let j = 0; j < 180; j++) {
+    let x = 90 - j;
+    let c = r.insertCell();
     c.id = `${i}x${j}`
     c.style.height = "2px";
     c.style.width = "2px";
@@ -32,14 +25,21 @@ for(i = 0; i < 180; i++) {
   }
 }
 
+
+let sidePanel = document.getElementById('side-panel'),
+    button = document.querySelector('button'),
+    spanPi = document.querySelector('#pi'),
+    spanSdev = document.querySelector('#s-dev'),
+    clicked = false
+
 function throwNeedles() {
   const numNeedles = document.querySelector("#needlesInput").value;
   const numTrials = document.querySelector("#trialsInput").value;
   let estPi = [];
-  for(j = 0; j < numTrials; j++) {
+  for(let j = 0; j < numTrials; j++) {
     clean();
     let inCircle = 0;
-    for (i = 0;  i < numNeedles; i++) {
+    for (let i = 0;  i < numNeedles; i++) {
       let x = Math.random() * 180 | 0;
       let y = Math.random() * 180 | 0;
       const c = document.getElementById(`${y}x${x}`)
@@ -59,7 +59,7 @@ function throwNeedles() {
 }
 
 function clean() {
-  const needles = document.querySelectorAll('.needles')
+  needles = document.querySelectorAll('.needles')
   Array.from(needles).forEach(v => v.classList.remove('needles'))
   button.textContent = 'Throw!'
   spanPi.textContent = ''
